@@ -70,9 +70,7 @@ buildVscode rec {
     license = lib.licenses.unfree;
     sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
     maintainers = with lib.maintainers; [
-      aspauldingcode
-      prince213
-      qweered
+      zachspar
     ];
     platforms = [
       "aarch64-linux"
