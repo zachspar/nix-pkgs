@@ -35,10 +35,15 @@ appimageTools.wrapType2 {
       --replace-quiet 'Exec=AppRun' 'Exec=${pname}' \
       --replace-quiet 'Exec=cursor' 'Exec=${pname}'
     
-    for size in 16 32 48 64 128 256 512; do
+    # Install icons with correct naming (co.anysphere.cursor)
+    for size in 22 24 32 48 64 128 256 512; do
       install -Dm444 ${appimageContents}/usr/share/icons/hicolor/''${size}x''${size}/apps/cursor.png \
-        $out/share/icons/hicolor/''${size}x''${size}/apps/cursor.png || true
+        $out/share/icons/hicolor/''${size}x''${size}/apps/co.anysphere.cursor.png
     done
+    
+    # Also install the main icon
+    install -Dm444 ${appimageContents}/co.anysphere.cursor.png \
+      $out/share/pixmaps/co.anysphere.cursor.png
   '';
 
   meta = {
